@@ -37,6 +37,10 @@ greenhouse.layers <- function(N=2) {
   # we assume steady state.
   T[1] <- ((1. - albedo.ground) * I.solar / (4. * eps.atm * sigma))^0.25
 
+  # return, if only one layer requested
+  if (N==1)
+    return(T)
+
   # The lower layers (N) are calculated from the above one (N-1), since
   # ouput and input must be equal, according to:
   #
